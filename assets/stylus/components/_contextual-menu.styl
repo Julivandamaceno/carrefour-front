@@ -1,0 +1,77 @@
+@import "../settings/*"
+@import "../tools/*"
+
+.crui-menu
+  font-family 'Open Sans', sans-serif
+  text-align center
+  font-size 13px
+
+  .crui-button
+    margin 0 auto
+    width 350px
+    margin-top 42px
+
+  .crui-title
+    margin-bottom 30px
+
+.crui-menu--list
+  list-style-type none
+  margin 0
+  padding 0
+
+.crui-menu--image
+  clear both
+  display block
+  margin 0 auto 42px
+  width 100%
+  max-width: 155px
+  transition(transform linear 0.1s)
+
+.crui-menu--title
+  color $mainlinkcolor
+  border-bottom 1px solid $mainlinkcolor
+  display block
+  padding-bottom 7px
+  margin-bottom 22.4px
+  font-size 15px
+  width 100%
+
+  &:hover
+    text-decoration none
+    color $mainlinkcolor
+
+    .crui-menu--image
+      transform(scale(1.1))
+
+.crui-menu--link
+  color $linkcolor
+  transition all linear .2s
+  text-decoration none !important
+  position relative
+
+  &.crui-menu--link__highlight
+    color $mainlinkcolor
+    display inline-block
+    font-size 17px
+    margin 14px auto
+
+  &:after
+    display block
+    position absolute
+    left 0
+    bottom -1px
+    width 0
+    height 1px
+    background-color $mainlinkcolor
+    content ''
+    transition(width 0.2s)
+
+  &:hover
+    color $linkhovercolor
+    text-decoration none
+
+    &:after
+      width 100%
+
+.crui-menu--list--item
+  margin-bottom 10px

@@ -1,0 +1,24 @@
+{
+  "name": "carrefour-front",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Julivandamaceno/carrefour-front.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Julivandamaceno/carrefour-front/issues"
+  },
+  "homepage": "https://github.com/Julivandamaceno/carrefour-front#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-imagemin": "^3.0.1",
+    "gulp-stylus": "^2.5.0"
+  }
+}
