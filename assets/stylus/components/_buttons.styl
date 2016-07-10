@@ -12,3 +12,12 @@
   font-size 12.6px
   padding 11px 0 10px
   width 100%
+  transition(all 0.2s ease-in)
+
+  &:hover
+    background darken($buttonbackground, 3%)
+    border-color darken($buttonborder, 6%)
+
+  &:active
+    background lighten($buttonbackground, 2%)
+    border-color darken($buttonborder, 5%)

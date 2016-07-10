@@ -2,17 +2,18 @@
 @import "../tools/*"
 
 .crui-menu
-  font-family 'Open Sans', sans-serif
   text-align center
   font-size 13px
-
-  .crui-button
-    margin 0 auto
-    width 350px
-    margin-top 42px
+  position relative
 
   .crui-title
-    margin-bottom 30px
+    margin-bottom 35px
+
+  .crui-close
+    position absolute
+    top -10px
+    right 0
+    z-index 2
 
 .crui-menu--list
   list-style-type none
@@ -20,12 +21,13 @@
   padding 0
 
 .crui-menu--image
+  transition(transform linear 0.1s)
   clear both
   display block
   margin 0 auto 42px
   width 100%
-  max-width: 155px
-  transition(transform linear 0.1s)
+  max-width 155px
+  max-height 100px
 
 .crui-menu--title
   color $mainlinkcolor
@@ -48,6 +50,7 @@
   transition all linear .2s
   text-decoration none !important
   position relative
+  word-wrap: break-word
 
   &.crui-menu--link__highlight
     color $mainlinkcolor
@@ -75,3 +78,8 @@
 
 .crui-menu--list--item
   margin-bottom 10px
+
+.crui-button.crui-menu--seemore
+  margin 0 auto
+  width 350px
+  margin-top 42px

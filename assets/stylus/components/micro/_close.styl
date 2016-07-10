@@ -1,0 +1,36 @@
+@import "../../settings/*"
+@import "../../tools/*"
+
+.crui-close
+  transition(color linear 0.2s)
+  background #FFFFFF
+  cursor pointer
+  color $linkcolor
+  display block
+  text-transform uppercase
+  padding-left 10px
+  font-size 12px
+
+  &:hover
+    color darken($linkcolor, 10%)
+
+    img
+      transform(rotate(-180deg))
+
+.crui-close--text
+  float left
+  padding 13px 9px 0 0
+
+.crui-close__circle
+  background $buttonbackground
+  border 1px solid $buttonborder
+  border-radius 50%
+  color $buttontext
+  display table-cell
+  vertical-align middle
+  text-align center
+  width 40px
+  height 40px
+
+  img
+    transition(transform ease-out 0.2s)
