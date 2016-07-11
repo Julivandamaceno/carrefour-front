@@ -7,16 +7,16 @@ module.exports = function(config) {
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
 
-
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['browserify', 'fixture', 'jasmine'],
+    frameworks: ['browserify', 'jasmine-jquery', 'jasmine'],
 
 
     // list of files / patterns to load in the browser
     files: [
-      {pattern: 'assets/javascripts/tests/**/*.html' },
-      'assets/javascripts/**/*.js'
+      { pattern: 'assets/javascripts/tests/**/*.html', included: false, served: true },
+      'assets/javascripts/tests/*.js',
+      'assets/javascripts/src/**/*.js'
     ],
 
 
@@ -27,9 +27,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'assets/javascripts/**/*.js' : ['browserify'],
-      'assets/javascripts/tests/**/*.html'   : ['html2js'],
-      '**/*.json'   : ['json_fixtures']
+      'assets/javascripts/**/*.js' : ['browserify']
     },
 
     browserify: {
@@ -63,7 +61,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ['Firefox'],
 
 
     // Continuous Integration mode

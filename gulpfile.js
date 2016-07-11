@@ -27,7 +27,7 @@ function handleErrors() {
 
 function buildScript(file, watch) {
   var props = {
-    entries: ['./assets/javascripts/' + file],
+    entries: ['./assets/javascripts/src/' + file],
     debug : false
   };
 

@@ -1,7 +1,6 @@
 import Velocity from 'velocity-animate';
 
 (function () {
-
   const CLOSE_BUTTON = document.getElementById('js-contextual-menu-see-more');
 
   if (!CLOSE_BUTTON) {
@@ -13,7 +12,7 @@ import Velocity from 'velocity-animate';
     const PLUS_TEXT = 'VER +';
     const MINUS_TEXT = 'VER -'
     const LIST_ITEMS = BUTTON.parentNode.querySelectorAll('.crui-menu--list--item__hidden');
-
+console.log('aqui');
     e.preventDefault();
 
     if (BUTTON.classList.contains('opened')) {
@@ -30,5 +29,4 @@ import Velocity from 'velocity-animate';
 
     Velocity(LIST_ITEMS, 'fadeIn');
   });
-
 }());
