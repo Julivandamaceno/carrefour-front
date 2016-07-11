@@ -1,8 +1,12 @@
-const velocity = require("velocity-animate");
+import Velocity from 'velocity-animate';
 
 (function () {
 
   const CLOSE_BUTTON = document.getElementById('js-contextual-menu-see-more');
+
+  if (!CLOSE_BUTTON) {
+    return;
+  }
 
   CLOSE_BUTTON.addEventListener('click', (e) => {
     const BUTTON = e.target;

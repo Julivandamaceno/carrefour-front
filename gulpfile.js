@@ -12,6 +12,7 @@ const buffer = require('vinyl-buffer');
 const source = require('vinyl-source-stream');
 const browserSync = require('browser-sync');
 const reload = browserSync.reload;
+const Server = require('karma').Server;
 
 function handleErrors() {
   var args = Array.prototype.slice.call(arguments);
@@ -78,6 +79,13 @@ gulp.task('stylus', () => {
 
 gulp.task('scripts', function() {
   return buildScript('main.js', false);
+});
+
+gulp.task('test', function (done) {
+  new Server({
+    configFile: __dirname + '/karma.config.js',
+    singleRun: false
+  }, done).start();
 });
 
 gulp.task('default', () => {
