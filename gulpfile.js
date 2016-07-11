@@ -27,12 +27,14 @@ function handleErrors() {
 function buildScript(file, watch) {
   var props = {
     entries: ['./assets/javascripts/' + file],
-    debug : false,
-    transform: [babelify]
+    debug : false
   };
 
   // watchify() if watch requested, otherwise run browserify() once
-  var bundler = watch ? watchify(browserify(props)) : browserify(props);
+  var bundler = watch ? watchify(browserify(props).transform('babelify', {
+      presets: ['es2015'],
+			compact : false
+    })) : browserify(props);
 
   function rebundle() {
     var stream = bundler.bundle();
