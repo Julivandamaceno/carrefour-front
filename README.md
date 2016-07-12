@@ -7,6 +7,6 @@ For css we use [BEM convention](http://getbem.com/)
 
 We use [Karma](https://karma-runner.github.io) for js tests 
 
-To run tests run `gulp test`
+To run tests `gulp test`
 
 To get the distribution code, just run `gulp dist`
