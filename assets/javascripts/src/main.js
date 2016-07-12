@@ -12,7 +12,7 @@ import Velocity from 'velocity-animate';
     const PLUS_TEXT = 'VER +';
     const MINUS_TEXT = 'VER -'
     const LIST_ITEMS = BUTTON.parentNode.querySelectorAll('.crui-menu--list--item__hidden');
-console.log('aqui');
+
     e.preventDefault();
 
     if (BUTTON.classList.contains('opened')) {

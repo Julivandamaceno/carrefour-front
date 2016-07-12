@@ -19,7 +19,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     var PLUS_TEXT = 'VER +';
     var MINUS_TEXT = 'VER -';
     var LIST_ITEMS = BUTTON.parentNode.querySelectorAll('.crui-menu--list--item__hidden');
-    console.log('aqui');
+
     e.preventDefault();
 
     if (BUTTON.classList.contains('opened')) {

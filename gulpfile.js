@@ -10,9 +10,12 @@ const watchify = require('watchify');
 const notify = require('gulp-notify');
 const buffer = require('vinyl-buffer');
 const source = require('vinyl-source-stream');
+const usemin = require('gulp-usemin');
+const replace = require('gulp-replace-path');
 const browserSync = require('browser-sync');
 const reload = browserSync.reload;
 const Server = require('karma').Server;
+
 
 function handleErrors() {
   var args = Array.prototype.slice.call(arguments);
@@ -43,7 +46,7 @@ function buildScript(file, watch) {
     return stream
       .on('error', handleErrors)
       .pipe(source(file))
-      .pipe(gulp.dest('./assets/dist/javascripts'))
+      .pipe(gulp.dest('./dist/assets/javascripts'))
       // .pipe(buffer())
       // .pipe(uglify())
       // .pipe(rename('app.min.js'))
@@ -66,7 +69,7 @@ gulp.task('imagemin', function() {
       .pipe(imagemin({
           progressive: true
       }))
-      .pipe(gulp.dest('./assets/dist/images'));
+      .pipe(gulp.dest('./dist/assets/images'));
 });
 
 gulp.task('stylus', () => {
@@ -74,7 +77,7 @@ gulp.task('stylus', () => {
     .pipe(stylus({
       compress: true
     }))
-    .pipe(gulp.dest('./assets/dist/css'));
+    .pipe(gulp.dest('./dist/assets/css'));
 });
 
 gulp.task('scripts', function() {
@@ -87,6 +90,23 @@ gulp.task('test', function (done) {
     singleRun: false
   }, done).start();
 });
+
+gulp.task('usemin', function() {
+  return gulp.src( './*.html' )
+    .pipe( usemin({
+      js: [],
+      css: [ 'concat' ]
+    }) )
+    .pipe(gulp.dest('./dist'));
+});
+
+gulp.task('replace', ['usemin'], function() {
+  gulp.src( './dist/**/*.html' )
+    .pipe(replace('dist/assets/images', 'assets/images'))
+    .pipe(gulp.dest('./dist'));
+});
+
+gulp.task('dist', ['usemin', 'replace']);
 
 gulp.task('default', () => {
   gulp.watch('./assets/stylus/**/*.styl', ['stylus']);
