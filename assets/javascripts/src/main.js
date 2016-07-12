@@ -11,7 +11,7 @@ import Velocity from 'velocity-animate';
     const BUTTON = e.target;
     const PLUS_TEXT = 'VER +';
     const MINUS_TEXT = 'VER -'
-    const LIST_ITEMS = BUTTON.parentNode.querySelectorAll('.crui-menu--list--item__hidden');
+    const LIST_ITEMS = BUTTON.parentNode.querySelectorAll('.crui-menu__list__item--hidden');
 
     e.preventDefault();
 

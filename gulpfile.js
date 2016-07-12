@@ -106,7 +106,7 @@ gulp.task('replace', ['usemin'], function() {
     .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('dist', ['usemin', 'replace']);
+gulp.task('dist', ['usemin', 'replace', 'imagemin']);
 
 gulp.task('default', () => {
   gulp.watch('./assets/stylus/**/*.styl', ['stylus']);

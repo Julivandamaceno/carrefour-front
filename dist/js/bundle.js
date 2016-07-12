@@ -18,7 +18,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     var BUTTON = e.target;
     var PLUS_TEXT = 'VER +';
     var MINUS_TEXT = 'VER -';
-    var LIST_ITEMS = BUTTON.parentNode.querySelectorAll('.crui-menu--list--item__hidden');
+    var LIST_ITEMS = BUTTON.parentNode.querySelectorAll('.crui-menu__list__item--hidden');
 
     e.preventDefault();
 
