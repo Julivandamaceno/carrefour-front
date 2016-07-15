@@ -93,10 +93,10 @@ gulp.task('test', function (done) {
 
 gulp.task('usemin', function() {
   return gulp.src( './*.html' )
-    .pipe( usemin({
+    .pipe(usemin({
       js: [],
       css: [ 'concat' ]
-    }) )
+    }))
     .pipe(gulp.dest('./dist'));
 });
 
