@@ -40,7 +40,11 @@
       return new CORE(dom, selector);
     };
 
-    CORE.prototype = {
+    let $ = (selector) => {
+      return crui.init(selector);
+    };
+
+    $.fn = CORE.prototype = {
       splice: [].splice,
       length: 0,
       addClass: function (name) {
@@ -79,13 +83,23 @@
       }
     };
 
-    return (selector) => {
-      return crui.init(selector);
-    };
-
+    return $;
   }());
 
   window.crui = CRUI;
+
+  ;(function($) {
+    $.fn.click = function (callback) {
+      if (!callback) {
+        return this[0].click();
+      }
+      return [].slice.call(this).map((elem) => {
+        elem.addEventListener('click', (e) => {
+          callback.call(this, e);
+        });
+      })
+    }
+  }(CRUI));
 
   return CRUI;
 }));

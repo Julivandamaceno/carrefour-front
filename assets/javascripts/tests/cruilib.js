@@ -5,7 +5,6 @@ beforeEach(function(){
 });
 
 describe('Selectors', () => {
-
   describe('Using ID', () => {
     it('should select element by id', () => {
       expect(crui('#test').length).toBe(1);
@@ -14,16 +13,13 @@ describe('Selectors', () => {
   });
 
   describe('Using classes', () => {
-
     it('should select all elements by class', () => {
       expect(crui('.element').length).toEqual(2);
     });
-
   });
 });
 
 describe('DOM manipulation', () => {
-
     describe('Class Helpers', () => {
       it('should add class', () => {
         crui('#test').addClass('class-added');
@@ -96,5 +92,28 @@ describe('DOM manipulation', () => {
         expect(crui('#my-input').val('my-new-value')).toBe('my-new-value');
       });
     });
+});
 
+describe('Events', () => {
+  describe('Simple click', () => {
+    it('should execute callback on element click', () => {
+      let event = jasmine.createSpy();
+
+      crui('#test').click(event);
+
+      crui('#test')[0].click();
+
+      expect(event).toHaveBeenCalled();
+    });
+
+    it('should trigger element click', () => {
+      let event = jasmine.createSpy();
+
+      crui('#test').click(event);
+
+      crui('#test').click();
+
+      expect(event).toHaveBeenCalled();
+    });
+  });
 });
