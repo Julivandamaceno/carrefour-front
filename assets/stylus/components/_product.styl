@@ -1,0 +1,58 @@
+@import "../settings/*"
+@import "../tools/*"
+
+.crui-product
+  transition(border linear 0.1s)
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border 2px solid #fff
+  color $product-base-color
+  display block
+  text-align center
+  
+  &:hover
+    color $product-base-color
+    border-color $product-border-hover
+    text-decoration none
+
+.crui-product--image
+  margin 0 auto
+  width 100%
+  max-width 200px
+  max-height 200px
+
+.crui-product--coupon
+  border 1px solid $product-coupon-border
+  text-transform uppercase
+  padding 5px 0
+  margin 0 auto 17px
+  font-weight 700
+  font-size 11px
+  width 99%
+
+.crui-product--name
+  font-size 13px
+  margin-bottom 13px
+  height 36px
+  
+.crui-product--price
+  color $highlight-color
+  font-size 12.5px
+  margin-bottom 0
+
+.crui-product--installments
+  color $product-installments
+  font-size 12.5px
+  line-height 14.3px
+  
+.crui-product--actions
+  border-top 1px solid $product-coupon-border
+  
+.crui-product--actions--favorite,
+.crui-product--actions--cart
+  display inline-block
+  width 49.6%
+  
+.crui-product--actions--favorite
+  border-right 1px solid $product-coupon-border

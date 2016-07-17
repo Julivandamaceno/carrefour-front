@@ -8,14 +8,8 @@ var _velocityAnimate2 = _interopRequireDefault(_velocityAnimate);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 (function () {
-  var CLOSE_BUTTON = document.getElementById('js-contextual-menu-see-more');
-
-  if (!CLOSE_BUTTON) {
-    return;
-  }
-
-  CLOSE_BUTTON.addEventListener('click', function (e) {
-    var BUTTON = e.target;
+  crui('#js-contextual-menu-see-more').click(function (e) {
+    var BUTTON = this;
     var PLUS_TEXT = 'VER +';
     var MINUS_TEXT = 'VER -';
     var LIST_ITEMS = BUTTON.parentNode.querySelectorAll('.crui-menu__list__item--hidden');

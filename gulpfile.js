@@ -30,7 +30,7 @@ function handleErrors() {
 
 function buildScript(file, watch) {
   var props = {
-    entries: ['./assets/javascripts/src/' + file],
+    entries: ['./assets/javascripts/' + file],
     debug : false
   };
 
@@ -110,5 +110,6 @@ gulp.task('dist', ['usemin', 'replace', 'imagemin']);
 
 gulp.task('default', () => {
   gulp.watch('./assets/stylus/**/*.styl', ['stylus']);
-  return buildScript('main.js', true)
+  buildScript('src/main.js', true)
+  buildScript('helpers/cruilib.js', true)
 });

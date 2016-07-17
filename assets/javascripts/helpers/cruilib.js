@@ -1,12 +1,4 @@
-(function(fn, factory) {
-  if (typeof define === 'function' && define.amd) {
-    define(function() { 
-      return factory(fn);
-    });
-  }else {
-    factory(fn);
-  }
-}(window, function(window) {
+(function(window) {
   let CRUI = (function() {
     let crui = {};
 
@@ -48,24 +40,32 @@
       splice: [].splice,
       length: 0,
       addClass: function (name) {
-        return elements(this).map((elem) => {
+        elements(this).map((elem) => {
           elem.classList.add(name);
         });
+
+        return this;
       },
       removeClass: function (name) {
-        return elements(this).map((elem) => {
+        elements(this).map((elem) => {
           elem.classList.remove(name);
         });
+
+        return this;
       },
       hide: function () {
-        return elements(this).map((elem) => {
+        elements(this).map((elem) => {
           elem.style.display = 'none';
         });
+
+        return this;
       },
       show: function () {
-        return elements(this).map((elem) => {
+        elements(this).map((elem) => {
           elem.style.display = 'block';
         });
+
+        return this;
       },
       val: function (val) {
         if (val) {
@@ -95,11 +95,11 @@
       }
       return [].slice.call(this).map((elem) => {
         elem.addEventListener('click', (e) => {
-          callback.call(this, e);
+          callback.call(this[0], e);
         });
       })
     }
   }(CRUI));
 
   return CRUI;
-}));
+}(window))

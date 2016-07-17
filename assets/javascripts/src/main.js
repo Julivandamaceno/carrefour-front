@@ -1,14 +1,8 @@
 import Velocity from 'velocity-animate';
 
 (function () {
-  const CLOSE_BUTTON = document.getElementById('js-contextual-menu-see-more');
-
-  if (!CLOSE_BUTTON) {
-    return;
-  }
-
-  CLOSE_BUTTON.addEventListener('click', (e) => {
-    const BUTTON = e.target;
+  crui('#js-contextual-menu-see-more').click(function (e) {
+    const BUTTON = this;
     const PLUS_TEXT = 'VER +';
     const MINUS_TEXT = 'VER -'
     const LIST_ITEMS = BUTTON.parentNode.querySelectorAll('.crui-menu__list__item--hidden');
