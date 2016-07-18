@@ -111,5 +111,6 @@ gulp.task('dist', ['usemin', 'replace', 'imagemin']);
 gulp.task('default', () => {
   gulp.watch('./assets/stylus/**/*.styl', ['stylus']);
   buildScript('src/main.js', true)
+  buildScript('src/vitrine.js', true)
   buildScript('helpers/cruilib.js', true)
 });

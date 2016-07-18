@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="58px" height="46px" viewBox="0 0 58 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-2" transform="translate(0.000000, 1.000000)" stroke="#235AC6" stroke-width="2">
+            <polyline id="Path-3" points="0.953125 0.505371094 10.2812556 0.505371094 11.0905585 4.43370699 15.8652344 27.6098633 50.0615234 27.4799805 56.144043 4.30957031 10.6699219 4.30957031"></polyline>
+            <path d="M16,28 L16,35.3757762" id="Path-4"></path>
+            <circle id="Oval-1" cx="19" cy="39" r="5"></circle>
+            <circle id="Oval-1" cx="47" cy="39" r="5"></circle>
+            <path d="M24.3781738,38 L41.9274148,38" id="Path-5"></path>
+        </g>
+    </g>
+</svg>

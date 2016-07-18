@@ -1,0 +1,52 @@
+@import "../../settings/*"
+@import "../../tools/*"
+
+@keyframes checkbox {
+  0% {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(1.4);
+    animation-duration: 100ms;
+  }
+
+  70% {
+    transform: scale(1);
+  }
+}
+
+.crui-cart
+    cursor pointer
+    position relative
+    width 40px
+    
+    &.crui-cart__active
+      .crui-cart--icon
+        path, circle
+          stroke $mainlinkcolor
+
+      .crui-cart--checkbox
+        opacity 1
+        animation checkbox .5s ease 0s forwards normal
+
+.crui-cart--icon
+  position absolute
+  width 40px
+  
+  path, circle
+      transition(all linear 0.1s)
+      fill #FFFFFF
+
+    &:hover
+      path, circle
+        stroke $mainlinkcolor
+        
+.crui-cart--checkbox
+  opacity 0
+  width 15px
+  height 15px
+  position absolute
+  top -4px
+  left 39%
+  z-index 2
