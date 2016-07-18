@@ -1,6 +1,6 @@
 jasmine.getFixtures().fixturesPath = 'base/assets/javascripts/tests';
 
-beforeEach(function(){
+beforeEach(() => {
   loadFixtures('crui.html');
 });
 
@@ -15,6 +15,20 @@ describe('Selectors', () => {
   describe('Using classes', () => {
     it('should select all elements by class', () => {
       expect(crui('.element').length).toEqual(2);
+    });
+  });
+
+  describe('Using DOM node', () => {
+    it('should select element by NodeList', () => {
+      let element = document.querySelectorAll('#test');
+      
+      expect(crui(element).length).toEqual(1);
+    });
+
+    it('should select element by DOM Node', () => {
+      let element = document.getElementById('test');
+      
+      expect(crui(element).length).toEqual(1);
     });
   });
 });
@@ -52,6 +66,29 @@ describe('DOM manipulation', () => {
         expect(elements[0].classList.contains('element-class-two')).toBeFalsy();
         expect(elements[1].classList.contains('element-class-two')).toBeFalsy();
       });
+
+      it('should add class to DOM node', () => {
+        let element = document.querySelectorAll('#test');
+        
+        crui(element).addClass('test');
+        expect(element[0].classList.contains('test')).toBeTruthy();
+
+        crui(element).removeClass('test');
+
+        let elementWithId = document.getElementById('test');
+
+        crui(elementWithId).addClass('test');
+
+        expect(elementWithId.classList.contains('test')).toBeTruthy();
+      });
+
+      it('should verify existence of class', () => {
+        expect(crui('#test').hasClass('mytest')).toBeFalsy();
+
+        document.getElementById('test').classList.add('mytest');
+
+        expect(crui('#test').hasClass('mytest')).toBeTruthy();
+      });
     });
 
     describe('Visibility Helpers', () => {
@@ -63,7 +100,7 @@ describe('DOM manipulation', () => {
         expect(element).toBeHidden();
       });
 
-      it('should hide element', () => {
+      it('should show element', () => {
         let element = document.getElementById('test');
         
         crui('#test').hide();
@@ -95,12 +132,11 @@ describe('DOM manipulation', () => {
 });
 
 describe('Events', () => {
-  describe('Simple click', () => {
+  describe('Click', () => {
     it('should execute callback on element click', () => {
       let event = jasmine.createSpy();
 
       crui('#test').click(event);
-
       crui('#test')[0].click();
 
       expect(event).toHaveBeenCalled();
@@ -110,10 +146,32 @@ describe('Events', () => {
       let event = jasmine.createSpy();
 
       crui('#test').click(event);
-
       crui('#test').click();
 
       expect(event).toHaveBeenCalled();
+    });
+  });
+
+  describe('Delegate', () => {
+    it('should execute callback on element delegated click', () => {
+      let event = jasmine.createSpy();
+
+      crui('#realtimeelement').on({
+        'click': event
+      }, 'body');
+
+      let realTimeElement = document.createElement('div');
+      realTimeElement.id = 'realtimeelement';
+
+      document.body.appendChild(realTimeElement);
+
+      crui('#realtimeelement')[0].click();
+
+      expect(event).toHaveBeenCalled();
+    });
+
+    afterEach(() => {
+      document.body.removeChild(document.getElementById('realtimeelement'));
     });
   });
 });

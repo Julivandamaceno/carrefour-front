@@ -42,6 +42,7 @@
     "watchify": "^3.7.0"
   },
   "dependencies": {
+    "lory.js": "^2.1.0",
     "velocity-animate": "^1.2.3"
   }
 }

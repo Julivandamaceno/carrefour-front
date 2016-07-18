@@ -21,6 +21,16 @@
       return [].slice.call(selector);
     }
 
+    function normalizeNodes(items) {
+      var nodes = [];
+
+      items.map(function (item) {
+        nodes.push(item[0]);
+      });
+
+      return nodes;
+    }
+
     crui.init = function (selector) {
       var dom = void 0;
 
@@ -30,6 +40,10 @@
         selector = selector.trim();
 
         dom = document.querySelectorAll(selector);
+      } else if (selector instanceof NodeList) {
+        dom = normalizeNodes([selector]);
+      } else if (selector instanceof Node) {
+        dom = [selector];
       }
 
       return new CORE(dom, selector);
@@ -70,6 +84,9 @@
 
         return this;
       },
+      hasClass: function hasClass(val) {
+        return this[0].classList.contains(val);
+      },
       val: function val(_val) {
         if (_val) {
           return this[0].value = _val;
@@ -93,15 +110,26 @@
 
   ;(function ($) {
     $.fn.click = function (callback) {
-      var _this = this;
-
       if (!callback) {
         return this[0].click();
       }
+
       return [].slice.call(this).map(function (elem) {
         elem.addEventListener('click', function (e) {
-          callback.call(_this[0], e);
+          callback.call(elem, e);
         });
+      });
+    };
+  })(CRUI);
+
+  ;(function ($) {
+    $.fn.on = function (opts, context) {
+      var _this = this;
+
+      return $(context).click(function (e) {
+        if (e.target && e.target.matches(_this.selector)) {
+          opts.click.call(e.target, e);
+        }
       });
     };
   })(CRUI);

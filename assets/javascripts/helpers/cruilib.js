@@ -18,6 +18,16 @@
       return [].slice.call(selector);
     }
 
+    function normalizeNodes(items) {
+      let nodes = [];
+
+      items.map((item) => {
+        nodes.push(item[0]);
+      });
+
+      return nodes;
+    }
+
     crui.init = function(selector) {
       let dom;
 
@@ -27,6 +37,10 @@
         selector = selector.trim();
 
         dom = document.querySelectorAll(selector);
+      } else if (selector instanceof NodeList) {
+        dom = normalizeNodes([selector]);
+      } else if (selector instanceof Node) {
+        dom = [selector];
       }
 
       return new CORE(dom, selector);
@@ -67,6 +81,9 @@
 
         return this;
       },
+      hasClass: function (val) {
+        return this[0].classList.contains(val);
+      },
       val: function (val) {
         if (val) {
           return this[0].value = val;
@@ -93,12 +110,23 @@
       if (!callback) {
         return this[0].click();
       }
+
       return [].slice.call(this).map((elem) => {
         elem.addEventListener('click', (e) => {
-          callback.call(this[0], e);
+          callback.call(elem, e);
         });
-      })
-    }
+      });
+    };
+  }(CRUI));
+
+  ;(function($) {
+    $.fn.on = function (opts, context) {
+      return $(context).click((e) => {
+        if (e.target && e.target.matches(this.selector)) {
+          opts.click.call(e.target, e);
+        }
+      });
+    };
   }(CRUI));
 
   return CRUI;
