@@ -32,9 +32,13 @@ describe('Selectors', () => {
     });
   });
 
+  it('should find element inside', () => {
+    expect(crui('#closest-tests').find('.far-far-node').length).toEqual(1);
+  });
+
   describe('Node bubbling', () => {
     it ('should return parent node', () => {
-      expect(crui('#child-node').parent().length).toBe(1);
+      expect(crui('#child-node').parent().length).toEqual(1);
       expect(crui('#child-node').parent()[0].id).toBe('parent-tests');
     });
 
@@ -211,5 +215,11 @@ describe('Chaining', () => {
 
     expect(document.getElementById('html-tests').innerHTML).toBe('chaining');
     expect(document.getElementById('html-tests').classList.contains('chaining-class')).toBeTruthy();
+  });
+
+  it('should chain find and addClass methods', () => {
+    crui('#closest-tests').find('.far-node').addClass('chaining-class');
+
+    expect(document.getElementById('closest-tests').classList.contains('chaining-class')).toBeTruthy();
   });
 });

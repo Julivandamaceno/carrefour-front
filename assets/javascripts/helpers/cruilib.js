@@ -60,12 +60,17 @@ import Closest from './closest';
           return elem.parentNode;
         });
       },
+      find: function (selector) {
+        this[0].querySelectorAll(selector);
+
+        return this;
+      },
       closest: function (selector) {
         return elements(this).map((elem) => {
           if ('closest' in document.body) {
             return elem.closest(selector);
           }
-          
+
           return Closest.get(elem, selector);
         });
       },
@@ -149,9 +154,11 @@ import Closest from './closest';
         return this[0].innerHTML;
       }
 
-      return [].slice.call(this).map((elem) => {
+      [].slice.call(this).map((elem) => {
         elem.innerHTML = html;
       });
+
+      return this;
     }
   }(CRUI));
 

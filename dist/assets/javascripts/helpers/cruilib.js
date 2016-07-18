@@ -146,6 +146,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
           return elem.parentNode;
         });
       },
+      find: function find(selector) {
+        this[0].querySelectorAll(selector);
+
+        return this;
+      },
       closest: function closest(selector) {
         return elements(this).map(function (elem) {
           if ('closest' in document.body) {
@@ -237,9 +242,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
         return this[0].innerHTML;
       }
 
-      return [].slice.call(this).map(function (elem) {
+      [].slice.call(this).map(function (elem) {
         elem.innerHTML = html;
       });
+
+      return this;
     };
   })(CRUI);
 
