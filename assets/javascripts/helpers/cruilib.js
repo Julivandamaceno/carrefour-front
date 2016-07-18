@@ -1,3 +1,5 @@
+import Closest from './closest';
+
 (function(window) {
   let CRUI = (function() {
     let crui = {};
@@ -53,6 +55,20 @@
     $.fn = CORE.prototype = {
       splice: [].splice,
       length: 0,
+      parent: function () {
+        return elements(this).map((elem) => {
+          return elem.parentNode;
+        });
+      },
+      closest: function (selector) {
+        return elements(this).map((elem) => {
+          if ('closest' in document.body) {
+            return elem.closest(selector);
+          }
+          
+          return Closest.get(elem, selector);
+        });
+      },
       addClass: function (name) {
         elements(this).map((elem) => {
           elem.classList.add(name);
@@ -117,9 +133,7 @@
         });
       });
     };
-  }(CRUI));
 
-  ;(function($) {
     $.fn.on = function (opts, context) {
       return $(context).click((e) => {
         if (e.target && e.target.matches(this.selector)) {
@@ -127,6 +141,18 @@
         }
       });
     };
+  }(CRUI));
+
+  ;(function($) {
+    $.fn.html = function (html) {
+      if (!html) {
+        return this[0].innerHTML;
+      }
+
+      return [].slice.call(this).map((elem) => {
+        elem.innerHTML = html;
+      });
+    }
   }(CRUI));
 
   return CRUI;

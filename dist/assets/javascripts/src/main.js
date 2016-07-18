@@ -9,24 +9,24 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 (function () {
   crui('#js-contextual-menu-see-more').click(function (e) {
-    var BUTTON = this;
+    var $BUTTON = crui(this);
     var PLUS_TEXT = 'VER +';
     var MINUS_TEXT = 'VER -';
-    var LIST_ITEMS = BUTTON.parentNode.querySelectorAll('.crui-menu__list__item--hidden');
+    var LIST_ITEMS = $BUTTON[0].parentNode.querySelectorAll('.crui-menu__list__item--hidden');
 
     e.preventDefault();
 
-    if (BUTTON.classList.contains('opened')) {
-      BUTTON.innerHTML = PLUS_TEXT;
-      BUTTON.classList.remove('opened');
+    if ($BUTTON.hasClass('opened')) {
+      $BUTTON.html(PLUS_TEXT);
+      $BUTTON.removeClass('opened');
 
       (0, _velocityAnimate2.default)(LIST_ITEMS, 'fadeOut');
 
       return;
     }
 
-    BUTTON.classList.add('opened');
-    BUTTON.innerHTML = MINUS_TEXT;
+    $BUTTON.addClass('opened');
+    $BUTTON.html(MINUS_TEXT);
 
     (0, _velocityAnimate2.default)(LIST_ITEMS, 'fadeIn');
   });

@@ -37,6 +37,7 @@
     "karma-jasmine": "^1.0.2",
     "karma-jasmine-jquery": "^0.1.1",
     "karma-safari-launcher": "^1.0.0",
+    "karma-winston-reporter": "0.0.3",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.7.0"

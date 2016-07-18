@@ -31,6 +31,17 @@ describe('Selectors', () => {
       expect(crui(element).length).toEqual(1);
     });
   });
+
+  describe('Node bubbling', () => {
+    it ('should return parent node', () => {
+      expect(crui('#child-node').parent().length).toBe(1);
+      expect(crui('#child-node').parent()[0].id).toBe('parent-tests');
+    });
+
+    it ('should return closest node', () => {
+      expect(crui('.far-far-node').closest('.closest-node').length).toBe(1);
+    });
+  });
 });
 
 describe('DOM manipulation', () => {
@@ -129,6 +140,24 @@ describe('DOM manipulation', () => {
         expect(crui('#my-input').val('my-new-value')).toBe('my-new-value');
       });
     });
+
+    describe('HTML', () => {
+      it('should insert HTML', () => {
+        const TEXT = 'my html';
+
+        crui('#html-tests').html(TEXT);
+
+        expect(document.getElementById('html-tests').innerHTML).toBe(TEXT);
+      });
+
+      it('should return HTML', () => {
+        const TEXT = 'my html';
+
+        document.getElementById('html-tests').innerHTML = TEXT;
+
+        expect(crui('#html-tests').html()).toBe(TEXT);
+      });
+    });
 });
 
 describe('Events', () => {
@@ -173,5 +202,14 @@ describe('Events', () => {
     afterEach(() => {
       document.body.removeChild(document.getElementById('realtimeelement'));
     });
+  });
+});
+
+describe('Chaining', () => {
+  it('should chain addClass and html methods', () => {
+    crui('#html-tests').html('chaining').addClass('chaining-class');
+
+    expect(document.getElementById('html-tests').innerHTML).toBe('chaining');
+    expect(document.getElementById('html-tests').classList.contains('chaining-class')).toBeTruthy();
   });
 });
