@@ -1,20 +1,13 @@
-/**
- * (optional) define here the style definitions which should be applied on the slider container
- * e.g. width including further controls like arrows etc.
- */
-.slider {}
+@import "../settings/*"
 
-.frame {
-    position: relative;
-    overflow: hidden;
-    white-space: nowrap;
-}
-
-.slides {
-    display: inline-block;
-}
-
-li {
-    position: relative;
-    display: inline-block;
-}
+.carousel-cell
+	width 20%
+ 
+.flickity-page-dots .dot
+	background $linkcolor
+	opacity 1
+	width 6px
+	height 6px
+	
+	&.dot.is-selected
+		background $mainlinkcolor

@@ -1,5 +1,3 @@
-import {lory} from 'lory.js';
-
 (function ($) {
 	$('.crui-favorite').click(function (e) {
 		e.preventDefault();
@@ -12,12 +10,4 @@ import {lory} from 'lory.js';
 
 		$(this).addClass('crui-cart__active');
 	});
-
-	let carousel = document.querySelector('.js_slider');
-
-	if (carousel) {
-		lory(carousel, {
-	        rewind: true
-	    });
-	}
 }(crui));
