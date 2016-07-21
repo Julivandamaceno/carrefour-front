@@ -118,6 +118,15 @@ import Closest from './closest';
         } {
           return this[0].style.display = 'none';
         }
+      },
+      toggleClass: function (name) {
+        if ($(this[0]).hasClass(name)) {
+          $(this[0]).removeClass(name)
+        }else {
+          $(this[0]).addClass(name)
+        }
+
+        return this;
       }
     };
 
@@ -127,6 +136,15 @@ import Closest from './closest';
   window.crui = CRUI;
 
   ;(function($) {
+    function selectorMatches(el, selector) {
+      var p = Element.prototype;
+      var f = p.matches || p.webkitMatchesSelector || p.mozMatchesSelector || p.msMatchesSelector || function(s) {
+        return [].indexOf.call(document.querySelectorAll(s), this) !== -1;
+      };
+
+      return f.call(el, selector);
+    }
+
     $.fn.click = function (callback) {
       if (!callback) {
         return this[0].click();
@@ -141,7 +159,7 @@ import Closest from './closest';
 
     $.fn.on = function (opts, context) {
       return $(context).click((e) => {
-        if (e.target && e.target.matches(this.selector)) {
+        if (e.target && selectorMatches(e.target, this.selector)) {
           opts.click.call(e.target, e);
         }
       });

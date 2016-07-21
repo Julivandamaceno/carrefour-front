@@ -104,6 +104,18 @@ describe('DOM manipulation', () => {
 
         expect(crui('#test').hasClass('mytest')).toBeTruthy();
       });
+
+      it('should toggle element class', () => {
+        let $elem = crui('#test');
+
+        $elem.toggleClass('test');
+
+        expect(document.getElementById('test').classList.contains('test')).toBeTruthy();
+
+        $elem.toggleClass('test');
+
+        expect(document.getElementById('test').classList.contains('test')).toBeFalsy();
+      });
     });
 
     describe('Visibility Helpers', () => {

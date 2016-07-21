@@ -5,13 +5,13 @@
 	$('.crui-favorite').click(function (e) {
 		e.preventDefault();
 
-		$(this).addClass('crui-favorite__active');
+		$(this).toggleClass('crui-favorite__active');
 	});
 
 	$('.crui-cart').click(function (e) {
 		e.preventDefault();
 
-		$(this).addClass('crui-cart__active');
+		$(this).toggleClass('crui-cart__active');
 	});
 })(crui);
 

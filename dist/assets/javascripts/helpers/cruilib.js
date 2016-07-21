@@ -204,6 +204,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
         }{
           return this[0].style.display = 'none';
         }
+      },
+      toggleClass: function toggleClass(name) {
+        if ($(this[0]).hasClass(name)) {
+          $(this[0]).removeClass(name);
+        } else {
+          $(this[0]).addClass(name);
+        }
+
+        return this;
       }
     };
 
@@ -213,6 +222,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   window.crui = CRUI;
 
   ;(function ($) {
+    function selectorMatches(el, selector) {
+      var p = Element.prototype;
+      var f = p.matches || p.webkitMatchesSelector || p.mozMatchesSelector || p.msMatchesSelector || function (s) {
+        return [].indexOf.call(document.querySelectorAll(s), this) !== -1;
+      };
+
+      return f.call(el, selector);
+    }
+
     $.fn.click = function (callback) {
       if (!callback) {
         return this[0].click();
@@ -229,7 +247,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
       var _this = this;
 
       return $(context).click(function (e) {
-        if (e.target && e.target.matches(_this.selector)) {
+        if (e.target && selectorMatches(e.target, _this.selector)) {
           opts.click.call(e.target, e);
         }
       });
