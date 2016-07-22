@@ -1,12 +1,20 @@
 @import "../settings/*"
+@import "../tools/*"
 
 .crui-category
+	transition(border linear 0.2s)
 	border 1px solid $titleborder
 	display inline-block
 	position relative
 	text-align center
 	padding 0 0 10px
 	width 202px
+	
+	&:hover
+		border-color $highlight-color
+		
+		.crui-category--price
+			border-color $highlight-color
 	
 	@media all and (max-width: 428px)
 		width 170px
@@ -16,6 +24,7 @@
 	max-width 190px
 
 .crui-category--price
+	transition(border linear 0.2s)
 	border 1px solid $titleborder
 	background #FFFFFF
 	color $highlight-color
