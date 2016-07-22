@@ -1,0 +1,32 @@
+@import "../settings/*"
+
+.crui-category
+	border 1px solid $titleborder
+	display inline-block
+	position relative
+	text-align center
+	padding 0 0 10px
+	width 202px
+	
+	@media all and (max-width: 428px)
+		width 170px
+	
+.crui-category--image
+	width 100%
+	max-width 190px
+
+.crui-category--price
+	border 1px solid $titleborder
+	background #FFFFFF
+	color $highlight-color
+	font-size 13px
+	position absolute
+	padding 10px 0
+	left 50%
+	bottom -22px
+	margin-left -(171/2)px
+	width 171px
+	
+	@media all and (max-width: 428px)
+		width 150px
+		margin-left -75px

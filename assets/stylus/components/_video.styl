@@ -1,0 +1,150 @@
+@import "../settings/*"
+@import "../tools/*"
+
+@media all and (max-width: 1297px)
+	.crui-video-column
+		width 40%
+
+	.crui-categories-column
+		width 60%
+
+@media all and (max-width: 1075px)
+	.crui-video-column
+		float left
+		width 55%
+
+	.crui-categories-column
+		float left
+		width 45%
+
+@media all and (max-width: 972px)
+	.crui-video-column
+		width 100%
+
+	.crui-categories-column
+		width 100%
+
+.crui-video
+	border-bottom 1px solid $titleborder
+	padding-bottom 35px
+
+	.crui-title
+		margin-bottom 38px
+
+	.crui-category
+		margin 0 0 40px 4.5%
+		
+		&.crui-category__first
+				margin-left 0
+		
+		@media all and (max-width: 1425px)
+			margin-left 4%
+		
+		@media all and (max-width: 1387px)
+			margin-left 2%
+		
+		@media all and (max-width: 1352px)
+			margin-left 1%
+			
+		@media all and (max-width: 1316px)
+			margin-left 0
+			
+		@media all and (max-width: 1297px)
+			margin-left 5%
+		
+		@media all and (max-width: 1199px)
+			margin-left 3%
+		
+		@media all and (max-width: 1144px)
+			margin-left 2%
+			
+		@media all and (max-width: 1123px)
+			margin-left 0
+			
+		@media all and (max-width: 1075px)
+			margin-left 2%
+			
+		@media all and (max-width: 991px)
+			margin-left 0
+			
+		@media all and (max-width: 972px)
+			margin-left 20%
+			
+				&.crui-category__first
+					margin-left inherit
+
+.crui-video-play
+	border-radius(50%)
+	transition(transform ease-in 0.2s)
+	background #2d62b9 url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiIGhlaWdodD0iNDkiIHZpZXdCb3g9IjAgMCAyMSA0OSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+UGF0aDwvdGl0bGU+PHBhdGggc3Ryb2tlPSIjRkZGIiBzdHJva2Utd2lkdGg9IjIiIGQ9Ik0xLjA0OSAxLjI5N2wxOC4xIDIzLjU0OS0xOC4xIDIzLjU0OSIgZmlsbD0ibm9uZSIvPjwvc3ZnPg==') no-repeat center
+	cursor pointer
+	position absolute
+	opacity 0.9
+	height 92px
+	width 92px
+	margin-left -(92/2)px
+	left 50%
+	top 30%
+	
+	@media all and (max-width: 1176px)
+		top 20%
+		
+	@media all and (max-width: 900px)
+		top 18%
+	
+	&:hover
+		transform(scale(1.2))
+
+.crui-video-content
+	text-align center
+	position relative
+
+.crui-video--image
+	width 100%
+	
+.crui-video--disclaimer
+	color $subtitle
+	font-size 13px
+	width 80%
+	margin 20px auto
+	
+	@media all and (max-width: 972px)
+		margin-bottom 40px
+	
+	a
+		color $subtitle
+		text-decoration underline
+		
+		&:hover
+			text-decoration none
+
+.crui-video--buy-itens
+	color $mainlinkcolor
+	position relative
+	
+	@media all and (max-width: 972px)
+		display none
+	
+	&:after
+		display block
+		position absolute
+		left 0
+		bottom -1px
+		width 0
+		height 1px
+		background-color $mainlinkcolor
+		content ''
+		transition(width 0.2s)
+
+	&:hover
+		color $linkhovercolor
+		text-decoration none
+
+		&:after
+			width 100%
+
+.crui-video-categories
+	text-align right
+	
+	@media all and (max-width: 972px)
+		text-align center
