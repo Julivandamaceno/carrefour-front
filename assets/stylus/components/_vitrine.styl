@@ -5,6 +5,12 @@
 	display inline-block
 	padding-bottom 40px
 	width 100%
+	
+	.crui-title
+		margin-bottom 30px
+		
+		&.crui-subtitle--with-subtitle
+			margin-bottom auto;
 
 .crui-carousel__container
 	margin 0 auto
@@ -15,6 +21,7 @@
 
 .carousel-cell
 	width 222px
+	padding 0 2px
  
 .flickity-prev-next-button
 	&.previous
@@ -31,3 +38,85 @@
 	
 	&.dot.is-selected
 		background $mainlinkcolor
+		
+.crui-vitrine-content
+	border 1px solid $titleborder
+	position relative
+	
+	.crui-carousel__container
+		margin 4% auto 0
+		width 79%
+	
+	.flickity-page-dots .dot.is-selected
+		background $vitrine-content-highlight-background
+
+.crui-vitrine-content__icon
+	margin-top 35px
+	
+.crui-vitrine-content__column-fixed
+	float left
+	width 314px
+	
+	@media all and (max-width: 775px)
+		width 100%
+
+.crui-vitrine-content__column-fluid
+	overflow hidden
+	height 498px
+	
+	@media all and (max-width: 775px)
+		width 100%
+		height auto
+		min-height 470px
+
+.crui-vitrine-content__highlight
+	background $vitrine-content-highlight-background
+	color $vitrine-content-text
+	display inline-block
+	position relative
+	text-align center
+	height 498px
+	width 100%
+	
+	@media all and (max-width: 775px)
+		height auto
+		padding-bottom 40px
+	
+	&:after
+		border 6px solid transparent
+		border-left-color $vitrine-content-highlight-background
+		content: ''
+		position absolute
+		top 48%
+		right -12px
+		width 0
+		height 0
+		
+		@media all and (max-width: 775px)
+			border-left-color transparent
+			border-top-color $vitrine-content-highlight-background
+			bottom -12px
+			top auto
+		    left 50%
+	
+	a
+		color $vitrine-content-text
+		text-decoration underline
+		
+		&:hover
+			text-decoration none
+
+.crui-vitrine-content__disclaimer
+	font-size  13px
+	margin 0 auto
+	width 92%
+	
+.crui-vitrine-content__title
+	font-size 30px
+	font-weight 300
+	line-height 35px
+	margin 21px auto
+	width 75%
+	
+.crui-vitrine-content__hash-links
+	margin-top 18px

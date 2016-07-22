@@ -27,3 +27,26 @@
     left 0
     width 100%
     z-index 0
+
+.crui-subtitle
+  color $subtitle
+  font-size 13px
+  line-height 17px
+  text-align center
+  margin 11px auto 30px
+  
+  @media all and (max-width: 605px)
+    width 90%
+    
+  @media all and (max-width: 525px)
+    width 80%
+  
+  a
+    color $subtitle
+    text-decoration underline
+    
+    &:hover
+      text-decoration none
+    
+.crui-subtitle__read_more
+  margin-top 20px
